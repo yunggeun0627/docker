@@ -21,18 +21,19 @@ select 10, 20 union all select 10, 20;
     SELECT * FROM 테이블1 JOIN 테이블2;
 */
 select * from student_tb as st1 join student_tb as st2;
-select * from student_tb as st1
-                inner join
-            student_tb as st2 on(st2.student_id = st1.student_id + 1)
-                left outer join
-             student_tb as st3 on(st3.student_id = st2.student_id + 1);
+select * from 
+student_tb st1
+inner join
+student_tb st2 on(st2.student_id = st1.student_id + 1)
+left outer join
+ student_tb  st3 on(st3.student_id = st2.student_id + 1);
 
 select
     *
 from
-    student_tb as st1
-        inner join student_tb as st2 on(st2.student_id = st1.student_id + 1)
-        left outer join  student_tb as st3 on(st3.student_id = st2.student_id + 1);
+        student_tb as st1
+        inner join student_tb st2 on(st2.student_id = st1.student_id + 1)
+        left outer join  student_tb st3 on(st3.student_id = st2.student_id + 1);
 
 /*
     반복문for문으로 표현
@@ -49,16 +50,8 @@ from
 /*
     서브쿼리(하위쿼리)
 */
-select
-    class_register_id,
-    crt.class_id
-from
-    class_register_tb crt
-        left outer join class_tb ct on(ct.class_id = crt.class_id)
-        left outer join student_tb st on(st.student_id = crt.student_id);
-
 explain analyze select
-                    class_register_id,
+                        class_register_id,
                     crt.class_id,
                     ct.class_name,
                     crt.student_id,
@@ -81,7 +74,7 @@ values
     (default, 2, 9);
 
 explain analyze select
-                    class_id,
+                    crt.class_id,
                     (select class_name from class_tb ct where ct.class_id = crt.class_id) as class_name
                 from
                     class_register_tb crt
