@@ -13,7 +13,7 @@ insert into student_tb(student_age, student_name) values(21, '예영근');
     여러줄 데이터 삽입
     INSET INTO 테이블명(컬럼1, 컬럼2, ...) VALUES('data1', 'data2'), ('data3', 'data4');
 */
-insert into studnet_tb
+insert into student_tb
 values('신짱구', 21), ('김철수', 22);
 
 /*
@@ -25,7 +25,7 @@ values('신짱구', 21), ('김철수', 22);
 
     각 컬럼에 아래의 데이터가 입력되도록 SQL문을 작성
 */
-insert into study_class_tb(class_name, price, student_name, student_age)
+insert into study_class_tb
 values
     ('Java 기초',	        150000, '김민수', 22),
     ('Python 웹개발',     200000, '이서연', 24),
@@ -40,7 +40,7 @@ values
 
 select * from study_class_tb;
 
-insert into study_class_tb(class_name, price, stuent_name, student_age)
+insert into study_class_tb
 values
     ('Java 기초',	        150000, '김민수', 22),
     ('Python 웹개발',     200000, '김민수', 24),
